@@ -14,8 +14,8 @@
           </div>
           <div class="column">
             <input class="input is-success" type="text" placeholder="Your ideal phrase" v-model="idealPhrase">
-            <button v-if="idealWallet.substring(0, idealPhrase.length) !== idealPhrase" class="button is-fullwidth" @click="generateWallet">Generate</button>
-            <a v-if="idealWallet.substring(0, idealPhrase.length) === idealPhrase" class="button is-success is-fullwidth" :href='downloadURL' download="keyfile.json">Download Keyfile</a>
+            <button v-if="idealWallet.substring(0, idealPhrase.length) !== idealPhrase || idealPhrase === ``" class="button is-fullwidth" @click="generateWallet">Generate</button>
+            <a v-if="idealWallet.substring(0, idealPhrase.length) === idealPhrase && idealPhrase !== ``" class="button is-success is-fullwidth" :href='downloadURL' download="keyfile.json">Download Keyfile</a>
           </div>
         </div>
       </div>
