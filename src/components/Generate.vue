@@ -76,6 +76,10 @@ export default {
 }
 
 .card-content h1, .card-content h6 {
-  color: black;
+  color: black !important;
+}
+
+.input.is-success {
+  margin-bottom: 1em;
 }
 </style>
