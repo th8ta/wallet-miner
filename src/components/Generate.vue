@@ -5,18 +5,17 @@
         <div class="columns">
           <div class="column">
             <h1 class="title" v-if="idealWallet === ''">Arweave Wallet Miner</h1>
-            <div class="card">
+            <div class="card" v-if="idealWallet !== ''">
               <div class="card-content">
                 <h6 class="subtitle">ADDRESS:</h6>
-                <h1 class="title monospace" v-if="idealWallet !== ''">{{ idealWallet }}</h1>
+                <h1 class="title monospace">{{ idealWallet }}</h1>
               </div>
             </div>
           </div>
           <div class="column">
-            <!-- <a class="button is-success is-fullwidth" :href='URL.createObjectURL({"hi": "sam"})' download="keyfile.json">Download Keyfile</a> -->
             <input class="input is-success" type="text" placeholder="Your ideal phrase" v-model="idealPhrase">
             <button v-if="idealWallet.substring(0, idealPhrase.length) !== idealPhrase" class="button is-fullwidth" @click="generateWallet">Generate</button>
-            <a v-if="idealWallet.substring(0, idealPhrase.length) !== idealPhrase" class="button is-success is-fullwidth" :href='downloadURL' download="keyfile.json">Download Keyfile</a>
+            <a v-if="idealWallet.substring(0, idealPhrase.length) === idealPhrase" class="button is-success is-fullwidth" :href='downloadURL' download="keyfile.json">Download Keyfile</a>
           </div>
         </div>
       </div>
@@ -74,5 +73,9 @@ export default {
 
 .monospace {
   font-family: "JetBrainsMono";
+}
+
+.card-content h1, .card-content h6 {
+  color: black;
 }
 </style>
